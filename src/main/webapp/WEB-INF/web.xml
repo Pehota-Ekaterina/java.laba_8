@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<web-app version="3.0" id="WebApp_ID" xsi:schemaLocation="http://Java.sun.com/xml/ns/javaee http://Java.sun.com/xml/ns/javaee/web-app_3_0.xsd" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+<display-name>Laba8</display-name>
+
+
+<welcome-file-list>
+  	<welcome-file>login.do</welcome-file>
+  </welcome-file-list>
+  <servlet>
+  	<description></description>
+  	<display-name>NewMessageServlet</display-name>
+  	<servlet-name>NewMessageServlet</servlet-name>
+  	<servlet-class>Servlets.NewMessageServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>NewMessageServlet</servlet-name>
+  	<url-pattern>/send_message.do</url-pattern>
+  </servlet-mapping>
+  <servlet>
+  	<description></description>
+  	<display-name>MessageListServlet</display-name>
+  	<servlet-name>MessageListServlet</servlet-name>
+  	<servlet-class>Servlets.MessageListServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>MessageListServlet</servlet-name>
+  	<url-pattern>/messages.do</url-pattern>
+  </servlet-mapping>
+  <servlet>
+  	<description></description>
+  	<display-name>LogoutServlet</display-name>
+  	<servlet-name>LogoutServlet</servlet-name>
+  	<servlet-class>Servlets.LogoutServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>LogoutServlet</servlet-name>
+  	<url-pattern>/logout.do</url-pattern>
+  </servlet-mapping>
+  <servlet>
+  	<description></description>
+  	<display-name>LoginServlet</display-name>
+  	<servlet-name>LoginServlet</servlet-name>
+  	<servlet-class>Servlets.LoginServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>LoginServlet</servlet-name>
+  	<url-pattern>/login.do</url-pattern>
+  </servlet-mapping>
+</web-app>
