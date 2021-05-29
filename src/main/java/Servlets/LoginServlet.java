@@ -106,9 +106,8 @@ String processLogonAttempt(String name, HttpServletRequest request, HttpServletR
 	
    String sessionId = request.getSession().getId(); 
    ChatUser aUser = activeUsers.get(name); 
-  
    if (aUser==null) { 
-	      aUser = new ChatUser(name, sessionId); 
+	      aUser = new ChatUser(name, Calendar.getInstance().getTimeInMillis(), sessionId); 
 	       synchronized (activeUsers) { 
 	    	  activeUsers.put(aUser.getName(), aUser);    
 	   
@@ -116,9 +115,12 @@ String processLogonAttempt(String name, HttpServletRequest request, HttpServletR
 	    }
 
    
-   if (aUser.getSessionId().equals(sessionId)) { 
+   if (aUser.getSessionId().equals(sessionId) || 
+   		aUser.getLastInteractionTime()<(Calendar.getInstance().getTimeInMillis()-
+   				sessionTimeout*1000)) { 
 	   
      request.getSession().setAttribute("name", name);
+     aUser.setLastInteractionTime(Calendar.getInstance().getTimeInMillis()); 
      Cookie sessionIdCookie = new Cookie("sessionId", sessionId); 
      sessionIdCookie.setMaxAge(60*60*24*365); 
      response.addCookie(sessionIdCookie);

@@ -2,15 +2,15 @@ package Entity;
 
 public class ChatUser { 
 	  private String name; 
-	 
+	  private String lastInteractionTime; 
 	  private String sessionId; 
 	  private static int Kol = 0; 
 	  
 	   
-	  public ChatUser(String name,String sessionId) { 
+	  public ChatUser(String name, String lastInteractionTime,String sessionId) { 
 		    super(); 
 		    this.name = name; 
-		 
+		    this.lastInteractionTime = lastInteractionTime; 
 		    this.sessionId = sessionId;
 		    Kol+=1;
 		  } 
@@ -31,6 +31,13 @@ public class ChatUser {
 		    this.name = name; 
 		  } 
 		 
+		  public String getLastInteractionTime() { 
+		    return lastInteractionTime; 
+		  } 
+		 
+		  public void setLastInteractionTime(String lastInteractionTime) { 
+		    this.lastInteractionTime = lastInteractionTime; 
+		  } 
 		 
 		  public String getSessionId() { 
 			    return sessionId; 
